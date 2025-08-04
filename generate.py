@@ -121,8 +121,8 @@ class CrosswordCreator():
             return revised
         
         i, j = overlap
-        keep = False
         for x_word in list(self.domains[x]):
+            keep = False
             for y_word in list(self.domains[y]):
                 if x_word[i] == y_word[j]:
                     keep = True
