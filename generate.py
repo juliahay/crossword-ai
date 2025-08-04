@@ -121,12 +121,16 @@ class CrosswordCreator():
             return revised
         
         i, j = overlap
+        keep = False
         for x_word in list(self.domains[x]):
             for y_word in list(self.domains[y]):
-                if x_word[i] != y_word[j]:
-                    self.domains[x].remove(x_word)
-                    revised = True
+                if x_word[i] == y_word[j]:
+                    keep = True
                     break
+            if keep == False:
+                self.domains[x].remove(x_word)
+                revised = True
+                    
         
         return revised
 
